@@ -25,6 +25,15 @@ Pimpalkhute et al.~\cite{pimpalkhute2014phonetic} noted that preprocessing medic
 	\label{fig:model-pimpalkhute}
 \end{figure}
 
+Pattisapu et al.~\cite{PATTISAPU2020103522} proposed a medical concept normalization(MCN) maps to convert informal phrases to formal medical concepts. Their proposed model is highlighted in figure~\ref{fig:medication-concept-normalization}.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.99\linewidth]{Figures/o.jpg}
+	\caption{Distant supervision for medical concept normalization model by Pattisapu et al.~\cite{PATTISAPU2020103522}.}
+	\label{fig:medication-concept-normalization}
+\end{figure}
+
 Sarker et al.~\cite{sarker2016social} proposed a stacking based ensemble classifier to automatically detect whether tweets are abuse or not when they contain specific 4 medication names. The architecture of the methodology is shown in~\ref{fig:model-sarker}. In the ensemble classifier, they used four algorithms - naive bayes(NB), SVM, maximum entropy(ME), and J48, and used various features such as n-gram, abuse-indicating terms, lexicon matches, synonym expansion, word cloud. They concluded that tweets are often ambiguous and impersonal, and a large number of corpus needed for better results. A sample of their annotated data is available\footnote{\url{http://diego.asu.edu/Publications/DrugAbuse_DrugSafety.html}}. In  their  follow-up  work~\cite{sarker2017corpus}, Sarker et al. proposed a corpus  of  267215  Twitter  posts  containing  at least one drug related keyword. They collected this data  over a four-month  period - from  November, 2014  to  February, 2015 and they contain over 250 medication related keywords. This data is available in their website\footnote{\url{http://diego.asu.edu/Publications/Drugchatter.html}}.
 
 \begin{figure}[h]
@@ -124,7 +133,7 @@ Alvaro et al.~\cite{alvaro2017twimed} presented a corpus of pharmacovigilance wh
 	\label{fig:architecture-twimed-alvaro}
 \end{figure}
 
-Klein et al.~\cite{klein2017detecting} focused their study not only on detecting medications but also on distinguishing tweets whether they indicate the user possibly took it or merely mention medication. For this research, they annotated 10260 tweets. The annotation guidelines and a sample of the annotated data are available\footnote{\url{https://healthlanguageprocessing.org/twitter-med-intake/}}. Later, Klein et al.~\cite{klein2019analysis} proposed a corpus of 27941 tweets for medication intake classification. They annotated them in three categories - “intake”, “possible intake”, and “no intake”. O’Connor et al.~\cite{o2020promoting} proposed an annotation guideline when they annotated 16443 tweets mentioning at least 20 abuse-prone medications. The guideline process is shown shown in figure~\ref{fig:annotation-oconnor}. They categorized tweets into four categories: “potential abuse or misuse”, “non-abuse consumption”, “drug mention only”, and “unrelated”. The annotation guideline is available\footnote{\url{https://tinyurl.com/y2zetam9}}.
+Klein et al.~\cite{klein2017detecting} focused their study not only on detecting medications but also on distinguishing tweets whether they indicate the user possibly took it or merely mention medication. For this research, they annotated 10260 tweets. The annotation guidelines and a sample of the annotated data are available\footnote{\url{https://healthlanguageprocessing.org/twitter-med-intake/}}. Later, Klein et al.~\cite{klein2019analysis} proposed a corpus of 27941 tweets for medication intake classification. They annotated them in three categories - “intake”, “possible intake”, and “no intake”. O’Connor et al.~\cite{o2020promoting} proposed an annotation guideline when they annotated 16443 tweets mentioning at least 20 abuse-prone medications. The guideline process is shown in figure~\ref{fig:annotation-oconnor}. They categorized tweets into four categories: “potential abuse or misuse”, “non-abuse consumption”, “drug mention only”, and “unrelated”. The annotation guideline is available\footnote{\url{https://tinyurl.com/y2zetam9}}.
 
 \begin{figure}[h]
 	\centering

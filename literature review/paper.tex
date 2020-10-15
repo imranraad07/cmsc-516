@@ -1,0 +1,53 @@
+\documentclass[12pt,conference]{IEEEtran}
+
+\usepackage{cite}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{algorithmic}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{xcolor}
+\usepackage{xspace}
+\usepackage{multirow}
+\usepackage{subcaption}
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{hyperref}
+\hypersetup{
+	colorlinks=true,
+	linkcolor=blue,
+	filecolor=magenta,      
+	urlcolor=cyan,
+	citecolor=black
+}
+\usepackage{wrapfig}
+
+
+
+\makeatletter
+\def\endthebibliography{%
+	\def\@noitemerr{\@latex@warning{Empty `thebibliography' environment}}%
+	\endlist
+}
+\makeatother
+
+\begin{document}
+
+\title{A Literature Review on Medication Extraction from Texts and ADR Classification}
+
+\author{\IEEEauthorblockN{Mia Mohammad Imran}
+		\IEEEauthorblockA{\textit{Virginia Commonwealth University}\\
+		Richmond, Virginia, U.S.A. \\
+		imranm3@vcu.edu}
+}
+
+\maketitle
+
+\input{abstract}
+
+\input{literature_review}
+
+\clearpage\pagebreak\newpage
+\bibliographystyle{IEEEtran}
+\bibliography{paper}
+
+\end{document}

@@ -13,7 +13,7 @@ Sarker et al.~\cite{sarker2016social} proposed a stacking based ensemble classif
 	\label{fig:model-sarker}
 \end{figure}
 
-Alvaro et al.~\cite{alvaro2015crowdsourcing} explored whether tweets contains information about first-hand medication user experience. They applied crowd sourcing annotation over 1548 tweets whether and annotated them as “First-class experience”, “Tweet written in English language”, and “Tweet about the drug”. The structure of their model is elucidated in figure~\ref{fig:flowchart-alvaro}. There curated corpus is available~\footnote{\url{https://github.com/nestoralvaro/JBI Pharmacovigilance/}}.
+Alvaro et al.~\cite{alvaro2015crowdsourcing} explored whether tweets contains information about first-hand medication user experience. The structure of their model is elucidated in figure~\ref{fig:flowchart-alvaro}. They used a couple of algorithms - C50, SVM, NB, Multi-Layer Perceptron (MLP), Generalized Linear Model (GLM), and Bayesian Generalized Linear Model (BGLM). In their experiment, BGLM achieved highest F1-score for almost all sets of features.
 
 \begin{figure}[h]
 	\centering
@@ -22,7 +22,7 @@ Alvaro et al.~\cite{alvaro2015crowdsourcing} explored whether tweets contains in
 	\label{fig:flowchart-alvaro}
 \end{figure}
 
-Meanwhile, to detect a tweet contains ADR or not, Zhang et al.~\cite{zhang2016ensemble} applied an ensemble algorithm of four classifiers: (1) a concept-matching classifier based on ADR lexicon; (2) a ME classifier with word-level n-gram features and TFIDF weighting scheme; (3) a ME classifier based on word-level n-grams using NB log count ratios as feature values; and (4) a ME classifier with word embedding features. They obtain an F-score of 0.4182(positive class). The code of their model is available~\footnote{\url{https://github.com/tjflexic/psb-adr}}.
+Meanwhile, to detect a tweet contains ADR or not, Zhang et al.~\cite{zhang2016ensemble} applied an ensemble algorithm of four classifiers: (1) a concept-matching classifier based on ADR lexicon; (2) a ME classifier with word-level n-gram features and TFIDF weighting scheme; (3) a ME classifier based on word-level n-grams using NB log count ratios as feature values; and (4) a ME classifier with word embedding features. They obtain an F1-score of 0.4182 (positive class). The code of their model is available~\footnote{\url{https://github.com/tjflexic/psb-adr}}.
 
 \subsubsection{Deep Learning}
 

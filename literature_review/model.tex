@@ -4,15 +4,6 @@
 
 \subsubsection{Machine Learning}
 
-Sarker et al.~\cite{sarker2016social} proposed a stacking based ensemble classifier to automatically detect whether tweets are abuse or not when they contain specific 4 medication names. The architecture of the methodology is shown in figure~\ref{fig:model-sarker}. In the ensemble classifier, they used four algorithms - naive bayes (NB), SVM, maximum entropy (ME), and J48, and used various features such as n-gram, abuse-indicating terms, lexicon matches, synonym expansion, word cloud. They concluded that tweets are often ambiguous and impersonal, and a large number of corpus needed for better results. A sample of their annotated data is available~\footnote{\url{http://diego.asu.edu/Publications/DrugAbuse_DrugSafety.html}}. 
-
-\begin{figure}[h]
-	\centering
-	\includegraphics[width=0.99\linewidth]{Figures/h.png}
-	\caption{Architecture by Sarker et al.~\cite{sarker2016social}}
-	\label{fig:model-sarker}
-\end{figure}
-
 Alvaro et al.~\cite{alvaro2015crowdsourcing} explored whether tweets contains information about first-hand medication user experience. The structure of their model is elucidated in figure~\ref{fig:flowchart-alvaro}. They used a couple of algorithms - C50, SVM, NB, Multi-Layer Perceptron (MLP), Generalized Linear Model (GLM), and Bayesian Generalized Linear Model (BGLM). In their experiment, BGLM achieved highest F1-score for almost all sets of features.
 
 \begin{figure}[h]
@@ -20,6 +11,15 @@ Alvaro et al.~\cite{alvaro2015crowdsourcing} explored whether tweets contains in
 	\includegraphics[width=0.99\linewidth]{Figures/n.jpg}
 	\caption{Flow chart of Alvaro et al.~\cite{alvaro2015crowdsourcing}’s methodology.}
 	\label{fig:flowchart-alvaro}
+\end{figure}
+
+Sarker et al.~\cite{sarker2016social} proposed a stacking based ensemble classifier to automatically detect whether tweets are abuse or not when they contain specific 4 medication names. The architecture of the methodology is shown in figure~\ref{fig:model-sarker}. In the ensemble classifier, they used four algorithms - naive bayes (NB), SVM, maximum entropy (ME), and J48, and used various features such as n-gram, abuse-indicating terms, lexicon matches, synonym expansion, word cloud. They concluded that tweets are often ambiguous and impersonal, and a large number of corpus needed for better results. A sample of their annotated data is available~\footnote{\url{http://diego.asu.edu/Publications/DrugAbuse_DrugSafety.html}}. 
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.99\linewidth]{Figures/h.png}
+	\caption{Architecture by Sarker et al.~\cite{sarker2016social}}
+	\label{fig:model-sarker}
 \end{figure}
 
 Meanwhile, to detect a tweet contains ADR or not, Zhang et al.~\cite{zhang2016ensemble} applied an ensemble algorithm of four classifiers: (1) a concept-matching classifier based on ADR lexicon; (2) a ME classifier with word-level n-gram features and TFIDF weighting scheme; (3) a ME classifier based on word-level n-grams using NB log count ratios as feature values; and (4) a ME classifier with word embedding features. They obtain an F1-score of 0.4182 (positive class). The code of their model is available~\footnote{\url{https://github.com/tjflexic/psb-adr}}.

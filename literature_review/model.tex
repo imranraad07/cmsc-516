@@ -7,17 +7,19 @@ One of the earliest research about medication names detection in social media wa
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.99\linewidth]{Figures/h.png}
-	\caption{Architecture by Sarker et al.~\cite{sarker2016social}}
-	\label{fig:model-sarker}
+	\begin{minipage}{0.45\textwidth}
+		\includegraphics[width=0.99\linewidth]{Figures/h.png}
+		\caption{Architecture by Sarker et al.~\cite{sarker2016social}}
+		\label{fig:model-sarker}
+	\end{minipage}
+	\hfill
+	\begin{minipage}{0.45\textwidth}
+		\includegraphics[width=0.99\linewidth]{Figures/r.png}
+		\caption{Flow chart of Dai et al.~\cite{dai2016feature}’s methodology.}
+		\label{fig:flowchart-alvaro}
+	\end{minipage}
 \end{figure}
 
-\begin{figure}[h]
-	\centering
-	\includegraphics[width=0.99\linewidth]{Figures/r.png}
-	\caption{Flow chart of Dai et al.~\cite{dai2016feature}’s methodology.}
-	\label{fig:flowchart-alvaro}
-\end{figure}
 
 These machine learning based approaches~\cite{jonnagaddala2016binary, sarker2016social, zhang2016ensemble, dai2016feature, alimova2017automated} heavily rely on feature engineering and require large amount of expert knowledge.
 
@@ -27,39 +29,42 @@ Recently the focus has shifted towards deep learning. Tutubalina et al.~\cite{TU
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.99\linewidth]{Figures/f.png}
-	\caption{Architecture for MCN in social media by Tutubalina et al.~\cite{TUTUBALINA201893}.}
-	\label{fig:architecture-tutubalina}
+	\begin{minipage}{0.45\textwidth}
+		\includegraphics[width=0.99\linewidth]{Figures/f.png}
+		\caption{Architecture for MCN in social media by Tutubalina et al.~\cite{TUTUBALINA201893}.}
+		\label{fig:architecture-tutubalina}
+	\end{minipage}
+	\hfill
+	\begin{minipage}{0.45\textwidth}
+		\includegraphics[width=0.99\linewidth]{Figures/l.png}
+		\caption{Semi-supervised CNN by Lee et al.~\cite{lee2017adverse}.}
+		\label{fig:architecture-lee}
+	\end{minipage}
 \end{figure}
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.99\linewidth]{Figures/e.png}
-	\caption{Architecture by Huynh et al.~\cite{huynh2016adverse}.}
-	\label{fig:architecture-huynh}
+	\begin{minipage}{0.45\textwidth}
+		\includegraphics[width=0.99\linewidth]{Figures/e.png}
+		\caption{Architecture by Huynh et al.~\cite{huynh2016adverse}.}
+		\label{fig:architecture-huynh}		
+	\end{minipage}
+	\hfill
+	\begin{minipage}{0.45\textwidth}
+		\includegraphics[width=0.99\linewidth]{Figures/a.png}
+		\caption{\textit{Kusuri} model by Weissenbacher et al.~\cite{weissenbacher2019deep}.}
+		\label{fig:architecture-weissenbacher}
+	\end{minipage}
 \end{figure}
 
-\begin{figure}[h]
-	\centering
-	\includegraphics[width=0.99\linewidth]{Figures/l.png}
-	\caption{Semi-supervised CNN by Lee et al.~\cite{lee2017adverse}.}
-	\label{fig:architecture-lee}
-\end{figure}
-
-\begin{figure}[h]
-	\centering
-	\includegraphics[width=0.99\linewidth]{Figures/k.png}
-	\caption{MSA model by Wu et al.~\cite{wu2019msa}.}
-	\label{fig:architecture-wu-msa} 
-\end{figure}
 
 Weissenbacher et al.~\cite{weissenbacher2019deep} introduced a deep neural networks ensemble method - \textit{Kusuri} - a LSTM model - to detect medication names in unbalanced tweets. \textit{Kusuri} is composed of two modules: first, applied four different classifiers (lexicon based, spelling variant based, pattern based, and a weakly trained neural network) parallel to discover potential tweets with medication names; second, an ensemble of deep neural networks encoding morphological, semantic, and longrange dependencies of important words in the tweets makes the final decision. The architecture is shown in Figure~\ref{fig:architecture-weissenbacher}. A brief description of four algorithms are provided by the authors~\footnote{\url{https://tinyurl.com/y47qzbcq}}. 
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.99\linewidth]{Figures/a.png}
-	\caption{\textit{Kusuri} model by Weissenbacher et al.~\cite{weissenbacher2019deep}.}
-	\label{fig:architecture-weissenbacher}
+	\includegraphics[width=0.99\linewidth]{Figures/k.png}
+	\caption{MSA model by Wu et al.~\cite{wu2019msa, wu2018detecting}.}
+	\label{fig:architecture-wu-msa} 
 \end{figure}
 
 Both supervised and unsupervised models have been developed based on neural networks architecture. CNN~\cite{wu2019msa, huynh2016adverse, lee2017adverse} and RNN~\cite{TUTUBALINA201893, huynh2016adverse} based models have been popular among researchers.

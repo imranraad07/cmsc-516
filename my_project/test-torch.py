@@ -37,10 +37,12 @@ N_EPOCHS = int(sys.argv[4])
 print('N_EPOCHS', N_EPOCHS)
 BATCH_SIZE = int(sys.argv[2])
 print('BATCH_SIZE', BATCH_SIZE)
+output_path = sys.argv[8]
 
 training_data = data.TabularDataset(path=path, format='csv', fields=fields, skip_header=True)
 
 train_data, validation_data = training_data.split(split_ratio=0.75, random_state=random.seed(SEED))
+print(type(train_data))
 
 TEXT.build_vocab(train_data, min_freq=3, vectors='glove.twitter.27B.100d')
 LABEL.build_vocab(train_data)
@@ -174,13 +176,21 @@ for row in validation_data:
     text = ' '.join(map(str, row.text))
     x_test.append(text)
 
+output_csv_rows = []
+output_csv_rows.append(['Tweet', 'Has_medication', 'Begin', 'End', 'span', 'drug normalized'])
+
 
 def check_med(text):
+    flag = True
     for item in medications:
         for drug in medications[item]:
             if drug in text:
-                print(text, ",", drug)
+                print(text, ",", drug, ",", text.find(drug))
+                flag = False
+                output_csv_rows.append([text, 1, int(text.find(drug)), int(text.find(drug) + len(drug)), drug, item])
                 break
+    if flag:
+        output_csv_rows.append([text, 1])
 
 
 def calc_accuracy():
@@ -194,6 +204,8 @@ def calc_accuracy():
             check_med(row)
         else:
             y_pred.append(0)
+            out_data = [row, 0]
+            output_csv_rows.append(out_data)
         idx = idx + 1
     print(classification_report(y_test, y_pred))
     print(confusion_matrix(y_test, y_pred))
@@ -210,3 +222,5 @@ for epoch in range(N_EPOCHS):
     print(f'\t Val. Loss: {valid_loss:.3f} |  Val. Acc: {valid_acc * 100:.2f}%')
 
 calc_accuracy()
+df = pd.DataFrame(output_csv_rows)
+df.to_csv(output_path, index=False, header=False)

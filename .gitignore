@@ -13,3 +13,13 @@ annotated_bibliography/main.log
 annotated_bibliography/main.out
 annotated_bibliography/main.synctex.gz
 annotated_bibliography/main.pdf
+
+my_project/.idea
+my_project/.idea/*
+my_project/.vector_cache
+my_project/.vector_cache/*
+my_project/venv
+my_project/venv/*
+my_project/__pycache__
+my_project/__pycache__/*
+my_project/saved_weights.pt

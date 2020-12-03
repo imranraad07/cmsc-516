@@ -7,7 +7,7 @@ import torch.optim as optim
 from torchtext import data
 import sys
 import pandas as pd
-import numpy as np
+from sklearn.metrics import classification_report, confusion_matrix
 
 nlp = spacy.load('en')
 SEED = 1731
@@ -166,8 +166,6 @@ def predict(model, sentence):
     return prediction.item()
 
 
-from sklearn.metrics import classification_report, confusion_matrix
-
 y_test = []
 x_test = []
 for row in validation_data:
@@ -181,7 +179,7 @@ def check_med(text):
     for item in medications:
         for drug in medications[item]:
             if drug in text:
-                print(text, drug)
+                print(text, ",", drug)
                 break
 
 

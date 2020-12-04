@@ -1,8 +1,10 @@
-# cmsc-516
+# cmsc-516: Project
 
-Project:
+Used technology for the model: PyTorch, SpaCy, scikit-learn, pandas.
 
-`python -m spacy download en`
+How to Setup:
+
+## Software Requirements:
 
 ```
 blis==0.7.3
@@ -37,3 +39,31 @@ typing-extensions==3.7.4.3
 urllib3==1.26.2
 wasabi==0.8.0
 ```
+
+Then, please run this instruction on your environment/virtual environment:
+
+`python -m spacy download en`
+
+This will download the SpaCy dictionary which is necessary to run the project.
+
+## Project Structure
+
+The project includes the following files and folders:
+
+  - __/dataset__: A folder that contains inputs that are used for the experiments. The model also saves here.
+	- final_data_set_1.csv: CSV file that contains 52267 tweets with 200 positive classes
+	- final_data_set_2.csv: CSV file that contains 52267 tweets with 500 positive classes
+	- final_data_set_3.csv: CSV file that contains 52267 tweets with 1000 positive classes
+	- medication_names.csv: CSV file that contains a set of precompiled medication names
+    - output.csv: This CSV file will contain the output of the experiment.
+  - test-tensor.py: this is the script for the model
+  - run_model.sh: The entry point of the experiment
+
+
+
+## Running Experiments
+Step 1: Install software requirements mentioned above.
+
+Step 2: Update the filepaths and parameters in *run_model.sh*
+
+Step 3: `.run_model.sh`

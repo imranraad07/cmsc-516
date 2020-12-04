@@ -177,7 +177,7 @@ for row in validation_data:
     x_test.append(text)
 
 output_csv_rows = []
-output_csv_rows.append(['Tweet', 'Has_medication', 'Begin', 'End', 'span', 'drug normalized'])
+output_csv_rows.append(['Tweet', 'Has_medication', 'Begin', 'End', 'Span', 'Drug normalized'])
 
 
 def check_med(text):

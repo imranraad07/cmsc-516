@@ -66,4 +66,4 @@ Step 1: Install software requirements mentioned above.
 
 Step 2: Update the filepaths and parameters in *run_model.sh*
 
-Step 3: `.run_model.sh`
+Step 3: `./run_model.sh`

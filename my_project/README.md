@@ -40,6 +40,10 @@ urllib3==1.26.2
 wasabi==0.8.0
 ```
 
+Python version:
+
+`Python 3.8.5`
+
 Then, please run this instruction on your environment/virtual environment:
 
 `python -m spacy download en`

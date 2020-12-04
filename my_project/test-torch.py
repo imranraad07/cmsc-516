@@ -17,7 +17,8 @@ torch.manual_seed(SEED)
 torch.backends.cudnn.deterministic = True
 
 medications = {}
-df = pd.read_csv('dataset/medication_names.csv', header=None)
+medication_path = sys.argv[10]
+df = pd.read_csv(medication_path, header=None)
 for row in df.values:
     drugs = list(row)
     drugs = [x for x in drugs if pd.notnull(x)]
@@ -29,8 +30,10 @@ print(len(medications))
 
 TEXT = data.Field(tokenize='spacy', batch_first=True, include_lengths=True)
 LABEL = data.LabelField(dtype=torch.float, batch_first=True)
+ID = data.Field(batch_first=True)
+ORG_TWEET = data.Field(batch_first=True)
 
-fields = [(None, None), (None, None), ('text', TEXT), ('label', LABEL)]
+fields = [('id', ID), ('original_tweet', ORG_TWEET), ('text', TEXT), ('label', LABEL)]
 path = sys.argv[6]
 print('path', path)
 N_EPOCHS = int(sys.argv[4])
@@ -42,10 +45,12 @@ output_path = sys.argv[8]
 training_data = data.TabularDataset(path=path, format='csv', fields=fields, skip_header=True)
 
 train_data, validation_data = training_data.split(split_ratio=0.75, random_state=random.seed(SEED))
-print(type(train_data))
+print(type(validation_data))
 
 TEXT.build_vocab(train_data, min_freq=3, vectors='glove.twitter.27B.100d')
 LABEL.build_vocab(train_data)
+ID.build_vocab(train_data)
+ORG_TWEET.build_vocab(train_data)
 
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
@@ -170,27 +175,33 @@ def predict(model, sentence):
 
 y_test = []
 x_test = []
+id = []
+tweets = []
 for row in validation_data:
     label = int(row.label)
     y_test.append(label)
     text = ' '.join(map(str, row.text))
     x_test.append(text)
+    id.append(row.id[0])
+    tweet = ' '.join(map(str, row.original_tweet))
+    tweets.append(tweet)
 
 output_csv_rows = []
-output_csv_rows.append(['Tweet', 'Has_medication', 'Begin', 'End', 'Span', 'Drug normalized'])
+output_csv_rows.append(['Id', 'Tweet', 'Has_medication', 'Begin', 'End', 'Span', 'Drug normalized'])
 
 
-def check_med(text):
+def check_med(id, text):
     flag = True
     for item in medications:
         for drug in medications[item]:
             if drug in text:
                 print(text, ",", drug, ",", text.find(drug))
                 flag = False
-                output_csv_rows.append([text, 1, int(text.find(drug)), int(text.find(drug) + len(drug)), drug, item])
+                output_csv_rows.append(
+                    [id, text, 1, int(text.find(drug)), int(text.find(drug) + len(drug)), drug, item])
                 break
     if flag:
-        output_csv_rows.append([text, 1])
+        output_csv_rows.append([id, text, 1])
 
 
 def calc_accuracy():
@@ -201,10 +212,10 @@ def calc_accuracy():
         if prediction >= 0.5:
             y_pred.append(1)
             # print(row)
-            check_med(row)
+            check_med(id[idx], tweets[idx])
         else:
             y_pred.append(0)
-            out_data = [row, 0]
+            out_data = [id[idx], tweets[idx], 0]
             output_csv_rows.append(out_data)
         idx = idx + 1
     print(classification_report(y_test, y_pred))

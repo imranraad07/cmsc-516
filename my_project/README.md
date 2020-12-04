@@ -51,9 +51,9 @@ This will download the SpaCy dictionary which is necessary to run the project.
 The project includes the following files and folders:
 
   - __/dataset__: A folder that contains inputs that are used for the experiments. The model also saves here.
-	- final_data_set_1.csv: CSV file that contains 52267 tweets with 200 positive classes
-	- final_data_set_2.csv: CSV file that contains 52267 tweets with 500 positive classes
-	- final_data_set_3.csv: CSV file that contains 52267 tweets with 1000 positive classes
+	- final_data_set_1.csv: CSV file that contains 52259 tweets with 200 positive classes
+	- final_data_set_2.csv: CSV file that contains 52559 tweets with 500 positive classes
+	- final_data_set_3.csv: CSV file that contains 53059 tweets with 1000 positive classes
 	- medication_names.csv: CSV file that contains a set of precompiled medication names
     - output.csv: This CSV file will contain the output of the experiment.
   - test-tensor.py: this is the script for the model

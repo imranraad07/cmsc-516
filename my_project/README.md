@@ -60,7 +60,7 @@ The project includes the following files and folders:
 	- final_data_set_3.csv: CSV file that contains 53059 tweets with 1000 positive classes
 	- medication_names.csv: CSV file that contains a set of precompiled medication names
     - output.csv: This will be added once the model run is completed. This CSV file will contain the output of the experiment.
-  - test-tensor.py: this is the script for the model
+  - test-torch.py: this is the script for the model
   - run_model.sh: The entry point of the experiment
 
 

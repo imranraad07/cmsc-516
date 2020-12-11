@@ -1,0 +1,67 @@
+\documentclass[12pt, onecolumn, conference]{IEEEtran}
+
+\usepackage{cite}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{algorithmic}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{xcolor}
+\usepackage{xspace}
+\usepackage{multirow}
+\usepackage{subcaption}
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{hyperref}
+\hypersetup{
+	colorlinks=true,
+	linkcolor=blue,
+	filecolor=magenta,      
+	urlcolor=black,
+	citecolor=black
+}
+\usepackage{wrapfig}
+
+
+
+\makeatletter
+\def\endthebibliography{%
+	\def\@noitemerr{\@latex@warning{Empty `thebibliography' environment}}%
+	\endlist
+}
+\makeatother
+
+\begin{document}
+	
+	\title{System Description: rough draft}
+	
+	\author{\IEEEauthorblockN{Mia Mohammad Imran}
+		\IEEEauthorblockA{\textit{Virginia Commonwealth University}\\
+			Richmond, Virginia, U.S.A. \\
+			imranm3@vcu.edu}
+	}
+	
+	\maketitle
+	
+	\input{abstract}
+	
+	\input{introduction}
+	
+	\input{model}
+
+	\input{evaluation}
+		
+	\section{Limitations and Future Work}
+	One of key area, we can improve in our dataset, is preprocessing the hashtags. Usually, the hashtags are combinations of multiple words. But we had not considered this when preprocessing out data. Another major drawback of our system is recognizing medication and dietary names. We have used pre-compiled medications list. The other issue, we had faced, the model was predicting correctly that there's a medication name but the medication terms are abstract - like `birth control pill', `meds', etc. 
+	
+	Our future work will involve performance over extremely balanced dataset where positive classes are 0.2-0.3\%. And secondly, we will work on to improve the methodology on how to detect medication and dietary names. As the dataset is highly imbalanced, especially, when there are 0.3\% positive classes, performance can be improved by upsampling minority class, by downsampling majority class, and adding weight when sampling~\footnote{\url{https://www.tensorflow.org/tutorials/structured_data/imbalanced_data}}. Secondly,	We can improve the detection of the medication names by using name-entity recognition (NER).
+	
+	\section{Conclusion}
+	In this paper, we have presented a model of learning classifier to identify tweets mentioning medication names. The model was able to achieve an f1-score of 0.94 on an imbalanced dataset with 1.88\% positive class. However, it achieved less success for even more imbalanced dataset with 0.38\% positive class. The code, dataset, and the model used for these experiments are publicly available~\footnote{\url{https://github.com/imranraad07/cmsc-516/tree/main/my_project}}.
+
+	\section{Acknowledgment}
+	The authors acknowledge the help of Mr. Davy Weissenbacher for kindly sharing the dataset.
+
+	\bibliographystyle{IEEEtran}
+	\bibliography{paper}
+	
+\end{document}

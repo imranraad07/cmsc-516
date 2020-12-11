@@ -1,0 +1,27 @@
+\section{Introduction}
+
+Twitter have become a very popular source for information sharing. Automatically detecting tweets which mentions medication names has become an area of interest in recent years. However, tweets are very noisy and informal, and full of misspellings and user-created abbreviations. 
+
+In order to facilitate the research on automatic detection of tweets mentioning medication names, BioCreative VII released a task - Automatic extraction of medication names in tweets~\footnote{\url{https://biocreative.bioinformatics.udel.edu/tasks/biocreative-vii/track-3/}}. This research project is based on the task.
+
+\subsection{Task Definition}
+The goal of the task is to extract the spans that mention a medication or dietary supplement in tweets. The table~\ref{table:1} shows an example of the task. If a tweet mentions 2 or more drugs, the tweet is repeated 2 or more times with the mention of each drug in each repetition as shown below. The evaluation data will just contain the tweet IDs and the text of the tweet. The evaluation is based on the normalization task, just the extraction task, i.e. retrieving the span positions. And the evaluation matrics is exact and partial F1-scores for the positive class (i.e., the correct spans of drug name).
+
+
+\begin{table}[h!]
+	\centering
+	\begin{tabular}{||c c c c c c c||} 
+		\hline
+		Id & Tweet & Has Medication & Begin & End & Span & Drug normalized \\ [0.5ex] 
+		\hline\hline
+		397783574797352960 & Only 3 Arnica Balms left... & 1 & 8 & 11 & Arnica Balms & arnica balm \\ 
+		404288692514078720 & @user sudafed that I'm not sure [..] & 1 & 1 & 13 & sudafed & sudafed \\
+		343961712334686205 & I like this song! & 0 & - & - & - & - \\
+		424441978835570688 & @user no my [..] hydros and moltrin & 1 & 44 & 49 & hydros & hydrocodone \\
+		424441978835570688 & @user no my [..] hydros and moltrin & 1 &  55 & 61 & moltrin & motrin \\ [1ex] 
+		\hline
+	\end{tabular}
+	\caption{Task Description}
+	\label{table:1}
+\end{table}
+
